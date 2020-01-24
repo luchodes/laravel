@@ -12,16 +12,16 @@ class MessageReceived extends Mailable
     use Queueable, SerializesModels;
 
     public $subject = 'Mensaje Recibido';
-    public $message;
+    public $msg; // lo hace publico a todos los archivos
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($message)
+    public function __construct($msg)
     {
-        $this->message = $message;
+        $this->msg = $msg;
     }
 
     /**

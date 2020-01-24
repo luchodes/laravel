@@ -14,7 +14,7 @@ class MessagesController extends Controller
 		//return 'Procesar el formulario';
 		//return $request->get('name');
 		//return request('name');
-		request()->validate([
+		$msg = request()->validate([ //envia estos datos al messageReceived
 			'name'=>'required',
 			'email'=>'required|email',
 			'subject'=>'required',
@@ -25,7 +25,9 @@ class MessagesController extends Controller
 
 		//enviar emails--------------------------------
 
-		Mail::to('luchodestrollerda2306@gmail.com')->send(new MessageReceived);
+		Mail::to('luchodestrollerda2306@gmail.com')->queue(new MessageReceived($msg));//pasa los datos del contructor al mailable
+
+		// return new MessageReceived($msg);
 
 		return 'Mensaje Enviado';
 	}
