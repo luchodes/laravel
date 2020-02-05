@@ -2,10 +2,10 @@
 
 
 Route::view('/','home')->name('home');
-Route::view('/about','about')->name('about');
-Route::view('/contact','contact')->name('contact');
+Route::view('/Quienes-somos','about')->name('about');
+Route::view('/contacto','contact')->name('contact');
 // Route::view('/portfolio','portfolio',compact('portfolio'))->name('portfolio');
-Route::get('/portfolio', 'ProjectController@index')->name('projects.index');
-Route::get('/portfolio/{id}', 'ProjectController@show')->name('projects.show');//le da el id de la tabla projects
+Route::get('/portafolio', 'ProjectController@index')->name('projects.index');
+Route::get('/portafolio/{id}', 'ProjectController@show')->name('projects.show');//le da el id de la tabla projects
 
-Route::post('contact', 'MessageController@store');
+Route::post('contact', 'MessageController@store')->name('messages.store');

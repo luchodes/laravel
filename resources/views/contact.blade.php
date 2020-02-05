@@ -11,7 +11,7 @@
 			<p> {{$error}}</p>
 		@endforeach
 	@endif --}}
-<form method="POST" action="{{route('contact')}}">
+<form method="POST" action="{{route('messages.store')}}">
 	@csrf
 	<input name="name" placeholder="Nombre...." value="{{old('name')}}"><br>
 	{!! $errors->first('name','<small>:message</small><br>') !!}
